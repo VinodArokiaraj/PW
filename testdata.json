@@ -1,0 +1,14 @@
+{
+    "username": "admin@email.com",
+    "password": "admin@123",
+    "name": "Vinod",
+    "interest": ["Selenium", "JavaScript", "MySQL", "Playwright", "Testing AWS"],
+    "gender": "Male",
+    "address": {
+                "area": "Perambur",
+                "city": "Chennai",
+                "pincode": 600011,
+                "state": "Tamil Nadu"
+                },
+    "hobbies": ["Playing", "Reading"]
+}

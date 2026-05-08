@@ -1,0 +1,41 @@
+const { test, expect } = require ('@playwright/test')
+
+test('Verify signup', async ({ page }) => {
+  await page.goto('https://www.facebook.com/');
+  await page.getByRole('button', { name: 'Decline optional cookies' }).click();
+  await page.getByRole('link', { name: 'Create new account' }).click();
+  await page.getByRole('textbox', { name: 'Name First name Last name' }).click();
+  await page.getByRole('textbox', { name: 'Name First name Last name' }).fill('Master');
+  await page.getByRole('textbox', { name: 'Name First name Last name' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Name First name Last name' }).click();
+  await page.getByRole('textbox', { name: 'Last name', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Last name', exact: true }).fill('Blaster');
+  await page.getByLabel('Select Month').locator('div').filter({ hasText: /^Month$/ }).click();
+  await page.locator('div').filter({ hasText: /^February$/ }).nth(1).click();
+  await page.getByLabel('Select Day').locator('div').filter({ hasText: /^Day$/ }).click();
+  await page.getByText('10', { exact: true }).click();
+  await page.getByLabel('Select Year').locator('div').filter({ hasText: /^Year$/ }).click();
+  await page.locator('div').filter({ hasText: /^1992$/ }).nth(1).click();
+  await page.locator('div').filter({ hasText: /^Select your gender$/ }).nth(1).click();
+  await page.locator('div').filter({ hasText: /^Male$/ }).nth(1).click();
+  await page.getByRole('textbox', { name: 'Mobile number or email Mobile' }).click();
+  await page.getByRole('textbox', { name: 'Mobile number or email Mobile' }).fill('9043512389');
+  await page.getByRole('textbox', { name: 'Password Password' }).click();
+  await page.getByRole('textbox', { name: 'Mobile number or email Mobile' }).dblclick();
+  await page.getByRole('textbox', { name: 'Mobile number or email Mobile' }).fill('Leodas126@gmail.com');
+  await page.getByRole('textbox', { name: 'Password Password' }).click();
+  await page.getByRole('textbox', { name: 'Password Password' }).fill('Testing@01');
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.goto('https://www.facebook.com/confirmemail.php?next=');
+  await page.getByRole('textbox', { name: 'Confirmation code' }).click();
+  await page.getByRole('textbox', { name: 'Confirmation code' }).fill('48344');
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.goto('https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2F%3Fcaa_reg_splash_screen%3D1');
+  await page.getByLabel('Continue').click();
+  await page.getByLabel('', { exact: true }).click();
+  await page.getByPlaceholder('Type the text').fill('967571');
+  await page.getByLabel('Continue').click();
+  await page.getByLabel('Start video selfie').click();
+  await page.getByRole('button', { name: 'Upload' }).click();
+  await page.getByRole('button', { name: 'Done' }).click();
+});
